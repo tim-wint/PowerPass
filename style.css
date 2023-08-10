@@ -692,3 +692,10 @@ input.ckeckbox:checked:after {
   height: auto;
   z-index: -1;
 }
+
+/* Responsive */
+@media screen and (max-width: 1280px) {
+  body {
+    zoom: 65%;
+  }
+}
