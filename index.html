@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PowerPass</title>
+    <link rel="icon" type="image/x-icon" href="./assets/logoIcon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <script type="module" src="PowerPass.js" defer></script>
+  </head>
+  <body>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <header>
+      <img src="./assets/logoGanz.svg" alt="">
+    </header>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.3.1/sha1.js"></script>
+    <div class="container">
+      <div class="left-side">
+        <h1 class="header">Dein Schlüssel zu:</h1>
+        <span id="element"></span>
+        <!-- Typed.js: https://github.com/mattboldt/typed.js/ -->
+        <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+        <script>
+          var typed = new Typed('#element', {
+            strings: ['‎Sicherheit^3000', '‎Passwortstärke^3000', '‎Datenschutz^3000', '‎Privatsphäre^3000'],
+            startDelay: 100,
+            typeSpeed: 70,
+            backSpeed: 70,
+            smartBackspace: true,
+            showCursor: false,
+            loop: true,
+          });
+        </script>
+        <p class="description">Egal ob du dich für den Schutz deines Online-Kontos, deiner Daten oder deiner Privatsphäre interessierst, PowerPass bietet dir alle Tools und Informationen, die du benötigst, um deine Passwortsicherheit zu maximieren.</p>
+        <button class="btn" id="scrollButton"> Teste dein Passwort <img src="assets/arrow_down_white.svg" alt="Arrow Down" class="arrow">
+        </button>
+        <script>
+          document.addEventListener("DOMContentLoaded", function() {
+            // Get the button element
+            const scrollButton = document.getElementById("scrollButton");
+            // Add a click event listener to the button
+            scrollButton.addEventListener("click", function() {
+              // Scroll down 100 pixels
+              window.scrollBy(0, 500);
+            });
+          });
+        </script>
+      </div>
+      <div class="right-side">
+        <img class="layer1" src="assets/Hero_Isometric/layer1.png" alt="">
+        <img src="assets/Hero_Isometric/layer2.png" alt="Layer 2" class="layer layer2">
+        <img src="assets/Hero_Isometric/layer3.png" alt="Layer 3" class="layer layer3">
+        <img src="assets/Hero_Isometric/layer4.png" alt="Layer 4" class="layer layer4">
+        <img src="assets/Hero_Isometric/layer5.png" alt="Layer 5" class="layer layer5">
+      </div>
+    </div>
+    <div class="container-testing" id="wrapper-testing">
+      <div class="testing-left">
+        <h1 class="title">Wie sicher ist dein Passwort?</h1>
+        <p class="desc">Dein Passwort wird auf typische Muster, wie Namen, wiederholte Charakter usw. untersucht und dann bewertet. <br> <br> <span style="font-weight: 600;">Datenschutzbedenken?</span> <br>Keine Sorge, dein Passwort wird nicht gespeichert. Das Skript zur Passwortanalyse läuft lokal auf deinem Gerät, bis auf eine Abfrage mit einer Datenbank von komprommierten Passwörtern, die verschlüsselt ist. <br> Auch wenn dein Passwort gespeichert werden würde, ohne dazugehörende E-Mail ist ein Passwort nutzlos.</p>
+      </div>
+      <div class="testing-right">
+        <div class="userInput">
+          <input type="password" id="passwordInput" placeholder="Passwort eingeben" />
+          <button type="button" id="eye_button">
+            <img src="./assets/eye_opened.svg" id="eye_icon" alt="Eye Icon" />
+          </button>
+          <script>
+            // Sichtbarkeit des Passworts ändern
+            let eye_button = document.getElementById("eye_button");
+            let eye_icon = document.getElementById("eye_icon");
+            let passwordInput = document.getElementById("passwordInput");
+            eye_button.addEventListener("click", function() {
+              if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                eye_icon.src = "./assets/eye_closed.svg";
+              } else {
+                passwordInput.type = "password";
+                eye_icon.src = "./assets/eye_opened.svg";
+              }
+            });
+          </script>
+        </div>
+        <div class="progress-bar-container">
+          <div class="progress-bar"></div>
+        </div>
+        <p id="passwordStrengthMessage"></p>
+        <div class="container-crackTime">
+          <p class="password-crack-time-header">Zeit um Passwort zu knacken:</p>
+          <p class="password-crack-time">
+            <span id="crackTimeOutput"></span>
+          </p>
+        </div>
+        <div class="foundPatterns-box">
+          <p class="foundPatterns-header">Gefundene Muster:</p>
+          <p id="foundPatterns"></p>
+        </div>
+      </div>
+    </div>
+    <div class="container-tips">
+      <h1 class="tips-header">Was macht ein Passwort sicher?</h1>
+      <div class="tip1">
+        <img id="tip1-img" src="assets/Einzigartig.png">
+        <div class="tip1-text">
+          <h1 class="tip1-header">Mache es <span class="underline-hover-effect">einzigartig</span>
+          </h1>
+          <p class="tip1-paragraph"> Verwende ein einzigartiges Passwort für jedes <br> Online-Konto. Dadurch verringert sich die <br> Wahrscheinlichkeit, dass ein kompromittiertes <br> Passwort die Sicherheit deiner anderen Konten <br> beeinträchtigt. </p>
+        </div>
+      </div>
+      <div class="tip2">
+        <div class="tip2-text">
+          <h1 class="tip2-header">Mache es <span class="underline-hover-effect">zufällig</span>
+          </h1>
+          <p class="tip2-paragraph"> Stelle sicher, dass deine Passwörter keinem <br> erkennbaren Muster folgen (z.B. keine Zahlen- <br> und Buchstabenabfolgen, keine häufig gebrauchten <br> Wörter, usw.) und nichts mit deinen persönlichen <br> Informationen zu tun haben. </p>
+        </div>
+        <img id="tip2-img" src="assets/Zufällig.png">
+      </div>
+      <div class="tip3">
+        <img id="tip3-img" src="assets/Lang.png">
+        <div class="tip3-text">
+          <h1 class="tip3-header">Mache es <span class="underline-hover-effect">lang</span>
+          </h1>
+          <p class="tip3-paragraph"> Die Verwendung langer Passwörter ist <br> entscheidend für die Passwortstärke. Ein <br> Passwort mit 8 Zeichen ist in wenigen Stunden <br> zu knacken, während ein Passwort mit 16 <br> Zeichen mehrere Billionen Jahre braucht, um von <br> einem Hacker geknackt zu werden. </p>
+        </div>
+      </div>
+    </div>
+    <div class="container-generator">
+      <div class="generator-text">
+        <h1 class="generator-header">Generiere ein Starkes <br> Passwort </h1>
+        <p class="generator-paragraph">Du brauchst ein starkes Passwort? Mit diesem Tool kannst du schnell <br> und einfach ein sicheres Passwort generieren, das deine <br> Online-Identität schützt. <br> Damit du dir solch komplizierte Passwörter nicht merken musst, ist <br> empfohlen, sie in einem Passwort Manager aufzubewahren. </p>
+      </div>
+      <div class="generator-script">
+        <div class="password-display">
+          <input type="text" id="generated-password" readonly>
+          <button id="copy-to-clipboard">
+            <img src="./assets/clipboard.svg" id="clipboard" />
+          </button>
+          <button id="regenerate">
+            <img src="./assets/retry.svg" id="retry" />
+          </button>
+        </div>
+        <div class="container-password-length-display">
+          <p class="password-length-label">Länge</p>
+          <p class="password-length-display" id="password-length-display">12</p>
+        </div>
+        <input type="range" id="password-length" min="8" max="30" value="12">
+        <div class="options">
+          <div class="checkbox-group top-left">
+            <label id="top-left-label" for="include-lowercase">Kleinbuchstaben</label>
+            <input type="checkbox" class="ckeckbox" id="include-lowercase" checked>
+          </div>
+          <div class="checkbox-group bottom-left">
+            <label id="bottom-left-label" for="include-uppercase">Grossbuchstaben</label>
+            <input type="checkbox" class="ckeckbox" id="include-uppercase" checked>
+          </div>
+          <div class="checkbox-group top-right">
+            <label id="top-right-label" for="include-numbers">Zahlen</label>
+            <input type="checkbox" class="ckeckbox" id="include-numbers" checked>
+          </div>
+          <div class="checkbox-group bottom-right">
+            <label id="bottom-left-label" for="include-special">Sonderzeichen</label>
+            <input type="checkbox" class="ckeckbox" id="include-special" checked>
+          </div>
+        </div>
+        <script src="passwort_generator.js"></script>
+      </div>
+    </div>
+    <a href="https://github.com/tim-wint">
+      <img class="github-logo" src="assets/GitHub_Logo.svg" title="GitHub repository">
+    </a>
+    <img class="background" src="assets/Background.png">
+  </body>
+</html>
