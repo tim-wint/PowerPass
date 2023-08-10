@@ -4,11 +4,6 @@ PowerPass ist eine Website rund um die Passwortsicherheit. Sie beinhaltet ein Pa
 
 Die Website ist unter [powerpass.net](https://powerpass.net/) erreichbar
 
-## Inhaltsverzeichnis
-- [Einführung](#einführung)
-- [Funktionen](#funktionen)
-- [Lizenz](#lizenz)
-
 ## Funktionen
 
 - Realistische Einschätzung der Passwortstärke mit Bewertung von 1 - 5 und geschätzter Knackzeit
