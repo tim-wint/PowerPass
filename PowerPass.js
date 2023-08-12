@@ -431,11 +431,11 @@ function checkPassword() {
 
 				let patternString = "";
 
-				// Loop through each found pattern and concatenate it to the patternString
+				// Loop durch jedes gefundene Muster und hänge es an patternString an
 				foundPatterns.forEach((pattern, index) => {
 					patternString += `${pattern.pattern} (${pattern.type})`;
 
-					// Add a comma after each pattern except the last one
+					// Komma nach jedem Muster hinzufügen, außer beim letzten
 					if (index !== foundPatterns.length - 1) {
 						patternString += ", ";
 					}
@@ -573,10 +573,10 @@ function checkPassword() {
 			passwordCrackTimeInSeconds = 0;
 		}
 
-		// Update the progress bar
+		// Stärkeanzeige aktualisieren
 		updateProgressBar(result.rating);
 
-		// Update the crack time display
+		// Crack Zeit aktualisieren
 		updateCrackTimeDisplay(passwordCrackTimeInSeconds);
 		
 		// Resultat *mit totalEntropy* in der Konsole anzeigen
